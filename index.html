@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 추첨</title>
+    <style>
+        @font-face {
+            font-family: Cute;
+            src: url('./Hakgyoansim\ Dunggeunmiso\ TTF\ B.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: Pretty;
+            src: url('./KOTRA\ HOPE.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: Cool;
+            src: url('./Griun_Cocochoitoon-Rg.ttf') format('truetype');
+        }
+
+        
+        .container{
+            width: auto;
+            margin: 50px;
+        }
+
+        .title-box{
+            background-color: #fffa9a;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .title-box h1{
+            font-family: 'Cool', sans-serif;
+            font-size: 100px;
+            text-align: center;
+            margin: 0;
+        }
+
+        .title-box h2{
+            font-family: 'Pretty', sans-serif;
+            font-size: 40px;
+            text-align: center;
+            margin: 20px 0 0 0;
+        }
+
+        .content-box{
+            background-color: #fffa9a;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            text-align: center;
+            min-height: 500px;
+        }
+
+        .button-box{
+            text-align: center;  
+            margin: 0; 
+            
+        }
+
+        .button-box input{
+            font-family: 'Cool', sans-serif;
+            background-color: #f1f1f1;
+            width: 220px;         
+            height: 70px;         
+            font-size: 28px;      
+            border-radius: 20px;  
+            border: solid, #93df89;
+            margin-top: 0;
+            cursor: pointer;
+        }
+
+        .button-box input:hover{
+            background-color: #f8f687;
+        }
+
+        .container3{
+            text-align: center;  
+            background-color: #eeffdd;  
+            padding: 40px 0;
+            margin: 40px;
+            border: solid,#93df89;
+            border-radius: 20px;
+        }
+
+        .container3 h2{
+            font-family: 'Pretty', sans-serif;
+            font-size: 50px;
+            color: #eb4949;
+            margin:0;
+        }
+    </style>
+
+
+
+
+
+    <script>
+        function getLotto(){
+            //랜덤
+            // Math.ramdom() * 큰수를 곱해서 %45 +1
+            let a = [];
+            for(let i=0; i<6; i++){
+                let b = Math.floor(Math.random()* 45)+1;
+                while(a.includes(b)){
+                    b = Math.floor(Math.random()*45)+1;
+                }
+                a.push(b);
+                
+            }
+            //로직
+            document.getElementById('lottoNumber').innerHTML = a.join(',  ');           
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="title-box">
+            <h1>🍀🍀오늘의 로또 번호 추첨🍀🍀</h1>
+            <h2>🎰당신에게 행운을 가져다 줄 숫자를 확인하세요</h2>
+        </div>
+
+        <div class="content-box">
+                <div class="button-box">
+                    <input onclick="getLotto()" type="button" value="🎲추첨하기" /> 
+                </div>
+
+            <div class="container3">
+                <h2 id="lottoNumber"></h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
